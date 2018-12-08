@@ -5,6 +5,8 @@
  */
 package vista;
 
+
+import controlador.Registro;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,24 +23,13 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form Menu
      */
-    public Menu() {
+    public Menu()  {
+      
         initComponents();
-                
+          Estado();      
         
     }
     
-    
-    public void Estado(){
-        
-        if (Conexion.getConexion() != null) {
-            
-          this.jlbl_estadoBd.setText("BD Conectada");
-        }else{
-            this.jlbl_estadoBd.setText("BD No Conectada");
-        }
-        
-        
-    }
     
     
 
@@ -85,6 +76,7 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel1.setText("Estado de Conexion a BD");
 
+        jlbl_estadoBd.setForeground(new java.awt.Color(0, 0, 0));
         jlbl_estadoBd.setText("...");
 
         jMenu1.setText("Clientes");
@@ -223,7 +215,8 @@ public class Menu extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         
-        
+       
+       
         
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -254,7 +247,7 @@ public class Menu extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Menu().setVisible(true);
-             
+                
             }
         });
         
@@ -275,4 +268,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jlbl_estadoBd;
     private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
+
+    public void Estado(){
+        this.jlbl_estadoBd.setText(Registro.Verificar());
+    }
+    
 }

@@ -110,4 +110,20 @@ public class Registro {
             System.out.println("Error metodo");
         }
     }
+    public static String Verificar(){
+        
+        try {
+           
+            Connection conn = Conexion.getConexion();
+            String query = "show status;";
+            PreparedStatement ver = conn.prepareStatement(query);
+            return "Conectada";
+            
+        } catch (Exception e) {
+            return "Error Conexion";
+        }
+        
+    }
+    
+    
 }

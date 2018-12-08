@@ -39,8 +39,9 @@ public class Conexion {
     }
     public static void Desconectar() throws SQLException{
         conn.close();
+        
     }
-       
+    
     
 }
 
