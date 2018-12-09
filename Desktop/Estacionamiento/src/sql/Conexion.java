@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  * @author Leonardo
  */
 public class Conexion {
-    
+    //prueba de github
     public static String bd     =   "pruebabd";
     public static String login  =   "root";
     public static String pass   =   "";
