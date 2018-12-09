@@ -117,6 +117,9 @@ public class Registro {
             Connection conn = Conexion.getConexion();
             String query = "show status;";
             PreparedStatement ver = conn.prepareStatement(query);
+            ver.execute();
+            ver.close();
+            conn.close();
             return "Conectada";
             
         } catch (Exception e) {
