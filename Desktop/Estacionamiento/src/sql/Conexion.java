@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  * @author Leonardo
  */
 public class Conexion {
-    //prueba de github
+    //creacion de variables para url del driver
     public static String bd     =   "pruebabd";
     public static String login  =   "root";
     public static String pass   =   "";
@@ -33,7 +33,6 @@ public class Conexion {
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Fallo en conexion a BD", "Error", 0);
-           
         }
       return conn;
     }

@@ -7,6 +7,7 @@ package vista;
 
 
 import controlador.Registro;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -47,7 +48,6 @@ public class Menu extends javax.swing.JFrame {
         tabla = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jlbl_estadoBd = new javax.swing.JLabel();
-        jlbl_hora = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -80,10 +80,6 @@ public class Menu extends javax.swing.JFrame {
 
         jlbl_estadoBd.setForeground(new java.awt.Color(0, 0, 0));
         jlbl_estadoBd.setText("...");
-
-        jlbl_hora.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jlbl_hora.setForeground(new java.awt.Color(0, 0, 0));
-        jlbl_hora.setText("jLabel2");
 
         jMenu1.setText("Clientes");
 
@@ -135,9 +131,7 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jlbl_hora, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(127, 127, 127)
                         .addComponent(jLabel1)
                         .addGap(37, 37, 37)
                         .addComponent(jlbl_estadoBd, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -152,9 +146,8 @@ public class Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jlbl_estadoBd)
-                    .addComponent(jlbl_hora))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jlbl_estadoBd))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -209,10 +202,10 @@ public class Menu extends javax.swing.JFrame {
             conn.close();
             
         } catch (SQLException e) {
-            System.out.println("ERROR SQL");
+            System.out.println("ERROR SQL " + e);
         }
         catch(Exception e){
-            System.out.println("Error método");
+            System.out.println("Error método " + e);
         }
         
         
@@ -274,12 +267,19 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel jlbl_estadoBd;
-    private javax.swing.JLabel jlbl_hora;
     private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 
     public void Estado(){
         this.jlbl_estadoBd.setText(Registro.Verificar());
+        if (Registro.Verificar()=="Conectada") {
+            
+            this.jlbl_estadoBd.setForeground(Color.GREEN);
+        }
+        else{
+            this.jlbl_estadoBd.setForeground(Color.RED);
+        }
+        
     }
     
 }
