@@ -13,6 +13,7 @@
 		Esta es la hora del servidor: 
 		<%= new java.util.Date()%> 
 		
+		<br>
 		
 		
 		
